@@ -1,13 +1,13 @@
 // Part of ethercat-rs. Copyright 2018-2019 by the authors.
 // This work is dual-licensed under Apache 2.0 and MIT terms.
 
-use std::env;
-use std::path::PathBuf;
+use std::{env, path::PathBuf};
 
 fn main() {
-    let path = env::var("ETHERCAT_PATH")
-        .expect("Please set the ETHERCAT_PATH env var to the location of \
-                 a checkout of the Ethercat master after running configure");
+    let path = env::var("ETHERCAT_PATH").expect(
+        "Please set the ETHERCAT_PATH env var to the location of \
+         a checkout of the Ethercat master after running configure",
+    );
 
     let bindings = bindgen::Builder::default()
         .header(format!("{}/lib/ioctl.h", path))
